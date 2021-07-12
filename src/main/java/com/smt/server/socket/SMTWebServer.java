@@ -7,6 +7,7 @@ import com.smt.util.PropertiesMan;
 // Lombok 1.x
 import lombok.extern.log4j.Log4j2;
 
+
 /****************************************************************************
  * <b>Title</b>: SMTWebServer.java
  * <b>Project</b>: Daily-SocketServer-Kata
@@ -21,19 +22,31 @@ import lombok.extern.log4j.Log4j2;
  * @since Jun 28, 2021
  * @updates:
  ****************************************************************************/
+
 @Log4j2
-public class SMTWebServer {
+public class SMTWebServer implements Runnable{
+	//vars
+	
 	/**
 	 * Kicks off the threaded server
 	 * @param args
 	 */
+	
 	public static void main(String[] args) {
-		//log.info("Do Something Here");
-		System.out.println("starting");
-		PropertiesMan propMan = new PropertiesMan();
-		Map<String, String> props = propMan.getProps();
-		for (var val: props.entrySet() ) {
-			System.out.println("val = " + val.getKey() + " , " + val.getValue() );
-		}
+		final PropertiesMan propMan = new PropertiesMan();
+		final Map<String, String> props = propMan.getProps();
+	
+		
+	
+		
+	
+		
+		
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 }
