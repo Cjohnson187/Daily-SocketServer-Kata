@@ -1,5 +1,9 @@
 package com.smt.server.socket;
 
+import java.util.Map;
+
+import com.smt.util.PropertiesMan;
+
 // Lombok 1.x
 import lombok.extern.log4j.Log4j2;
 
@@ -24,6 +28,12 @@ public class SMTWebServer {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		log.info("Do Something Here");
+		//log.info("Do Something Here");
+		System.out.println("starting");
+		PropertiesMan propMan = new PropertiesMan();
+		Map<String, String> props = propMan.getProps();
+		for (var val: props.entrySet() ) {
+			System.out.println("val = " + val.getKey() + " , " + val.getValue() );
+		}
 	}
 }

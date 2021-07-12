@@ -54,3 +54,28 @@ me so your server can be tested.  To test locally, navigate to the libs folder a
 
 This is set to automatically run the main method in the com.smt.server.socket.SMTWebServer class
 
+--------***********************************************--------
+Noun- 
+	Socket
+		Server socket
+		socket
+	file
+	directory
+	connection
+	response 
+	request
+
+verb-
+	get file
+ 	connect
+	listen
+	respond
+
+
+// Make Server
+	// listen for request
+	// parse request
+	// return file
+	// loop
+
+ 

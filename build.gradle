@@ -4,7 +4,7 @@ plugins {
     id "io.freefair.lombok" version "6.0.0-m2"
 }
 
-group = 'Team Name Here'
+group = 'CJ$'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -31,6 +31,13 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     testImplementation('org.junit.jupiter:junit-jupiter:5.7.0')
     testImplementation('org.junit.vintage:junit-vintage-engine:5.7.0')
+    
+    // lombok
+    compileOnly 'org.projectlombok:lombok:1.18.20'
+	annotationProcessor 'org.projectlombok:lombok:1.18.20'
+	
+	testCompileOnly 'org.projectlombok:lombok:1.18.20'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.20'
 }
 
 jar {
