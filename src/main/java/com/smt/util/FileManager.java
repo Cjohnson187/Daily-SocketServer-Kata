@@ -1,6 +1,9 @@
 package com.smt.util;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import data.Trie;
@@ -26,28 +29,43 @@ public @Data class FileManager {
 	
 	// actual vals
 	private PropertiesMan props;
-	private TreeMap map;
-	String ROOT = "/Daily-SocketServer-Kata/src/main/resources";
+	private Map<String, File> map;
+	String ROOT = "src/main/resources/";
 	String fileDir;
+	
+	public static void main(String[] args) {
+		FileManager man = new FileManager();
+		for (Entry<String,File> f : man.map.entrySet()) {
+			System.out.println("dir = " + f.getKey() + " | is file? " + f.getValue().isFile()  );
+		}
+	}
 	
 	public FileManager() {
 		super();
 		props = new PropertiesMan();
-		this.fileDir =  ROOT + props.getProps().get("WEB_ROOT");
+		this.fileDir = props.getProps().get("fileRoot");
 		this.map = new TreeMap();
 		File webRoot = new File(this.fileDir);
 		build(webRoot);
 	}
 	
-	public void build(File root) {
+	public void build(File file) {
 		//map.put(root, root);
-		File webRoot = new File(this.fileDir);
-		for(File f: webRoot.listFiles()) {
-			System.out.println("list files = "  + f.getAbsolutePath());
-			if( f.listFiles().length > 0)  {
-				//build();
+		//System.out.println("file? = " + file.isDirectory() +   " | " + file.getAbsolutePath());
+		if(file.isDirectory()) {
+			
+			for(File child: file.listFiles() ) {
+				build(child);
 			}
+		} 
+		else if(file.isFile()) {
+			map.put(file.getPath(), file);
+			//System.out.println("is file ! " + file.isFile());
 		}
+		
+		
+		
+		
 	}
 	
 
